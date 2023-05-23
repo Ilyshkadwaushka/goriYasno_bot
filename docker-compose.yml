@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  goriyasno:
+    environment:
+      'DATABASE_URL': database_url
+    image: goriyasno-docker:0.0.1
+    build: ./
+    command: bash -c "cd goriyasno && python3 master.py"
+    volumes:
+      - ..:/goriyasno
+    ports:
+      - "8000:8000"
